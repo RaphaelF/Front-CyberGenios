@@ -1,4 +1,4 @@
-import { GlobalStyle } from "./components/Global";
+import { GlobalStyle } from "./components/Global.tsx";
 import {
   NavBar,
   NavItem,
