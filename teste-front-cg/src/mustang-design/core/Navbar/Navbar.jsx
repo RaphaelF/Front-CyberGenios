@@ -13,14 +13,15 @@ export const NavBar = styled.ul`
   list-style: none;
   width: 100%;
   height: 5rem;
-  background: black;
+
   @media screen and (max-width: 425px) {
     flex-direction: column;
     align-items: flex-start;
     border-radius: 0px 24px 24px 0px;
     width: 75%;
     height: 100%;
-    background: grey;
+    color: ${primaryColor};
+    background: ${whiteColor};
   }
 `;
 
@@ -69,6 +70,10 @@ const NavLink = styled.a`
       transform: scale(1.2);
     }
   }
+  :hover {
+    outline-style: inset;
+    outline-color: ${whiteColor};
+  }
   @media screen and (max-width: 425px) {
     color: ${primaryColor};
     margin: 1rem 2rem;
@@ -79,6 +84,7 @@ const NavLink = styled.a`
       border-bottom: 2px solid ${primaryColor};
       animation: animate2 0.15s normal ease;
     }
+
     @keyframes animate2 {
       0%,
       100% {
@@ -101,11 +107,16 @@ const LoginBtn = styled.button`
   justify-content: space-between;
   width: 110px;
   border: none;
+  cursor: pointer;
   background: transparent;
   :hover,
   :focus,
   :active {
     animation: animate 0.3s normal ease;
+  }
+  :hover {
+    outline-style: inset;
+    outline-color: ${whiteColor};
   }
   @keyframes animate {
     0%,
@@ -126,6 +137,11 @@ const LoginBtn = styled.button`
 
 export const MenuBtn = styled(LoginBtn)`
   display: none;
+  position: absolute;
+  top: 0.8rem;
+  left: 0.625rem;
+  width: fit-content;
+  height: fit-content;
   @media screen and (max-width: 425px) {
     display: block;
   }
@@ -140,8 +156,8 @@ const ButtonText = styled.p`
 `;
 
 export const StyledIcon = styled(Icon)`
-  width: 23.5px;
-  height: 24.88px;
+  width: 2rem;
+  height: 2rem;
   color: ${whiteColor};
 `;
 
@@ -164,8 +180,11 @@ export const LoginButton = () => {
 
 export const MenuButton = () => {
   return (
-    <LoginButton>
-      <StyledIcon icon={"ant-design:menu-outlined"}></StyledIcon>
-    </LoginButton>
+    <MenuBtn>
+      <StyledIcon
+        style={{ width: "2.625rem", height: "2.625rem" }}
+        icon={"ant-design:menu-outlined"}
+      ></StyledIcon>
+    </MenuBtn>
   );
 };
