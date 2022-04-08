@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { primaryColor, whiteColor } from "../UI/variables";
 import { Icon } from "@iconify/react";
 import { ReactComponent as Logo } from "../../../assets/logo.svg";
+import { ReactComponent as Logo2 } from "../../../assets/logo2.svg";
 
 export const NavBar = styled.ul`
   display: flex;
@@ -13,6 +14,8 @@ export const NavBar = styled.ul`
   list-style: none;
   width: 100%;
   height: 5rem;
+  transition: 0.2s;
+  z-index: 2;
 
   @media screen and (max-width: 425px) {
     flex-direction: column;
@@ -21,84 +24,21 @@ export const NavBar = styled.ul`
     width: 75%;
     height: 100%;
     color: ${primaryColor};
-    background: ${whiteColor};
+
+    background: white;
+    transform: ${(props) =>
+      props.ativo ? "translateX(0px)" : "translateX(-1000px)"};
   }
 `;
 
 const LogoContainer = styled.span`
   margin-top: 5px;
   margin-left: 1.563rem;
+  background: transparent;
   @media screen and (max-width: 425px) {
     margin-left: 1.2rem;
   }
 `;
-
-export const StyledLogo = () => {
-  return (
-    <LogoContainer>
-      <Logo></Logo>
-    </LogoContainer>
-  );
-};
-
-export const NavItemContainer = styled.li`
-  display: flex;
-  align-items: center;
-  text-align: center;
-`;
-
-const NavLink = styled.a`
-  font-family: "Montserrat";
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 150%;
-  margin: 0 8rem;
-  color: ${whiteColor};
-  :hover,
-  :focus,
-  :active {
-    animation: animate 0.15s normal ease;
-  }
-  @keyframes animate {
-    0%,
-    100% {
-      outline: transparent;
-      transform: scale(1);
-    }
-    50% {
-      outline-color: ${whiteColor};
-      transform: scale(1.2);
-    }
-  }
-  :hover {
-    outline-style: inset;
-    outline-color: ${whiteColor};
-  }
-  @media screen and (max-width: 425px) {
-    color: ${primaryColor};
-    margin: 1rem 2rem;
-    :hover,
-    :focus,
-    :active {
-      outline: 1px inset ${primaryColor};
-      border-bottom: 2px solid ${primaryColor};
-      animation: animate2 0.15s normal ease;
-    }
-
-    @keyframes animate2 {
-      0%,
-      100% {
-        outline: transparent;
-        transform: scale(1);
-      }
-      50% {
-        outline: 1px inset ${primaryColor};
-        transform: scale(1.2);
-      }
-    }
-  }
-`;
-
 const LoginBtn = styled.button`
   display: flex;
   flex-direction: row;
@@ -138,12 +78,15 @@ const LoginBtn = styled.button`
 export const MenuBtn = styled(LoginBtn)`
   display: none;
   position: absolute;
-  top: 0.8rem;
+  top: 1.3rem;
   left: 0.625rem;
   width: fit-content;
+  z-index: 2;
   height: fit-content;
   @media screen and (max-width: 425px) {
     display: block;
+    transform: ${(props) =>
+      !props.ativo ? "translateX(0px)" : "translateX(-1000px)"};
   }
 `;
 
@@ -161,11 +104,11 @@ export const StyledIcon = styled(Icon)`
   color: ${whiteColor};
 `;
 
-export const NavItem = ({ Text, url }) => {
+export const StyledLogo = () => {
   return (
-    <NavItemContainer>
-      <NavLink href={url}>{Text}</NavLink>
-    </NavItemContainer>
+    <LogoContainer>
+      {window.innerWidth > 425 ? <Logo /> : <Logo2 />}
+    </LogoContainer>
   );
 };
 
@@ -178,9 +121,16 @@ export const LoginButton = () => {
   );
 };
 
-export const MenuButton = () => {
+export const MenuButton = ({ ativo, setAtivo }) => {
+  const handleClick = () => {
+    setAtivo(!ativo);
+  };
   return (
-    <MenuBtn>
+    <MenuBtn
+      onClick={() => {
+        handleClick();
+      }}
+    >
       <StyledIcon
         style={{ width: "2.625rem", height: "2.625rem" }}
         icon={"ant-design:menu-outlined"}
@@ -188,3 +138,14 @@ export const MenuButton = () => {
     </MenuBtn>
   );
 };
+
+export const NavClose = styled.div`
+  display: ${(props) => (props.ativo ? "block" : "none")};
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  @media screen and (min-width: 425px) {
+    display: none;
+  }
+`;

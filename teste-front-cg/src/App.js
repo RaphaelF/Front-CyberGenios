@@ -1,4 +1,5 @@
 import { GlobalStyle } from "./components/Global.tsx";
+import Home from "./components/Home";
 import Navbar from "./mustang-design/core/Navbar";
 
 function App() {
@@ -6,10 +7,7 @@ function App() {
     <>
       <GlobalStyle />
       <Navbar />
-      <div style={{ width: "100vw", height: "200px", background: "black" }}>
-        {" "}
-        HEWWO THERR
-      </div>
+      <Home />
     </>
   );
 }
