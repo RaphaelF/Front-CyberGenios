@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-
 import bkg from "../../assets/background.png";
-import {
-  CarouselContainer,
-  CarouselItem,
-} from "../../mustang-design/core/Carousel/Carousel";
 
 import { ElipseFrame } from "../../mustang-design/core/Frame/Frames";
 
 import StyledImage from "../../mustang-design/core/Image";
+import CarouselContainer from "../../mustang-design/core/Carousel/CarouselContainer";
+import CarouselItem from "../../mustang-design/core/Carousel/CarouselItem";
 
 function Home() {
   const [imgSize, setImgSize] = useState();
@@ -35,27 +32,48 @@ function Home() {
         <StyledImage url={bkg} alt={"Carro em uma garagem"} />
       </ElipseFrame>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          width: "100%",
-          height: "20rem",
-          background: "green",
-          marginBottom: "5rem",
-        }}
-      >
-        <CarouselContainer>
-          <CarouselItem color={"blue"}></CarouselItem>
-          <CarouselItem color={"red"}></CarouselItem>
-          <CarouselItem color={"black"}></CarouselItem>
-          <CarouselItem color={"white"}></CarouselItem>
-          <CarouselItem color={"blue"}></CarouselItem>
-          <CarouselItem color={"red"}></CarouselItem>
-          <CarouselItem color={"black"}></CarouselItem>
-          <CarouselItem color={"white"}></CarouselItem>
-        </CarouselContainer>
-      </div>
+      <CarouselContainer>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "green" }}
+          ></div>
+        </CarouselItem>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "green" }}
+          ></div>
+        </CarouselItem>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "green" }}
+          ></div>
+        </CarouselItem>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "green" }}
+          ></div>
+        </CarouselItem>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "blue" }}
+          ></div>
+        </CarouselItem>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "blue" }}
+          ></div>
+        </CarouselItem>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "blue" }}
+          ></div>
+        </CarouselItem>
+        <CarouselItem>
+          <div
+            style={{ height: "12rem", width: "8rem", background: "blue" }}
+          ></div>
+        </CarouselItem>
+      </CarouselContainer>
     </div>
   );
 }
