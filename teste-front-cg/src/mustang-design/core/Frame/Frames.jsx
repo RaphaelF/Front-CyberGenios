@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { whiteColor } from "../UI/variables";
 
 export const ElipseFrame = styled.div`
-  width: 2462px;
-  height: 800px;
+  width: ${(props) => (props.size === "lg" ? "2462px" : "425px")};
+  height: ${(props) => (props.size === "lg" ? "800px" : "343px")};
   background-color: ${whiteColor};
   clip-path: ellipse(55% 65% at 32% 20%);
   @media screen and (max-width: 425px) {

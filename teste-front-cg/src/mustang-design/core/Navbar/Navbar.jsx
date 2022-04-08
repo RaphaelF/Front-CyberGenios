@@ -6,7 +6,7 @@ import { ReactComponent as Logo2 } from "../../../assets/logo2.svg";
 
 export const NavBar = styled.ul`
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   flex-direction: row;

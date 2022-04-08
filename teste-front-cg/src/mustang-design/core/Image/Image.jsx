@@ -10,7 +10,6 @@ export const Image = styled.img`
 
   @media screen and (max-width: 425px) {
     height: 343px;
-    background-size: contain;
   }
 `;
 
