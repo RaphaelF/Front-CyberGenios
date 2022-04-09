@@ -1,5 +1,5 @@
 import BarraDeNavegacao from "./components/BarraDeNavegacao.jsx";
-import { GlobalStyle } from "./components/Global.tsx";
+import { GlobalStyle } from "./components/Global.jsx";
 import Home from "./components/Home";
 
 function App() {
