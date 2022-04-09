@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { primaryColor, whiteColor } from "../UI/variables";
 import { Icon } from "@iconify/react";
-import { ReactComponent as Logo } from "../../../assets/logo.svg";
-import { ReactComponent as Logo2 } from "../../../assets/logo2.svg";
+import { LoginBtn } from "../../UI/LoginButton/LoginButton";
 
 export const NavBar = styled.ul`
   display: flex;
@@ -31,50 +30,6 @@ export const NavBar = styled.ul`
   }
 `;
 
-const LogoContainer = styled.span`
-  margin-top: 5px;
-  margin-left: 1.563rem;
-  background: transparent;
-  @media screen and (max-width: 425px) {
-    margin-left: 1.2rem;
-  }
-`;
-const LoginBtn = styled.button`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 1.1rem;
-  justify-content: space-between;
-  width: 110px;
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  :hover,
-  :focus,
-  :active {
-    animation: animate 0.3s normal ease;
-  }
-  :hover {
-    outline-style: inset;
-    outline-color: ${whiteColor};
-  }
-  @keyframes animate {
-    0%,
-    100% {
-      outline: transparent;
-      transform: scale(1);
-    }
-    50% {
-      outline-style: inset;
-      outline-color: ${whiteColor};
-      transform: scale(1.2);
-    }
-  }
-  @media screen and (max-width: 425px) {
-    display: none;
-  }
-`;
-
 export const MenuBtn = styled(LoginBtn)`
   display: none;
   position: absolute;
@@ -90,36 +45,11 @@ export const MenuBtn = styled(LoginBtn)`
   }
 `;
 
-const ButtonText = styled.p`
-  font-family: "Montserrat";
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 150%;
-  color: ${whiteColor};
-`;
-
 export const StyledIcon = styled(Icon)`
   width: 2rem;
   height: 2rem;
   color: ${whiteColor};
 `;
-
-export const StyledLogo = () => {
-  return (
-    <LogoContainer>
-      {window.innerWidth > 425 ? <Logo /> : <Logo2 />}
-    </LogoContainer>
-  );
-};
-
-export const LoginButton = () => {
-  return (
-    <LoginBtn>
-      <ButtonText>Entrar</ButtonText>
-      <StyledIcon icon={"ant-design:user-outlined"}></StyledIcon>
-    </LoginBtn>
-  );
-};
 
 export const MenuButton = ({ ativo, setAtivo }) => {
   const handleClick = () => {

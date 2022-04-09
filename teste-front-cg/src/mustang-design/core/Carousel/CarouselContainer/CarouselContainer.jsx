@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryColor, whiteColor } from "../../UI/variables";
+import { primaryColor, whiteColor, tertiaryColor } from "../../UI/variables";
 import { Icon } from "@iconify/react";
 
 export const CarouselOutter = styled.div`
@@ -17,7 +17,6 @@ export const CarouselInner = styled.div`
   flex-direction: row;
   width: 75%;
   height: fit-content;
-  overflow: auto;
   overflow-x: auto;
   padding: 3rem;
   background: ${whiteColor};
@@ -36,7 +35,7 @@ export const CarouselInner = styled.div`
     background: ${primaryColor};
   }
   ::-webkit-scrollbar-track {
-    background: red;
+    background: ${tertiaryColor};
   }
 `;
 export const CarouselBtn = styled.button`

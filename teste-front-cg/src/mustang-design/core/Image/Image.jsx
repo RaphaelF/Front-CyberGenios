@@ -5,7 +5,7 @@ export const Image = styled.img`
   height: 903px;
   background-image: url(${(props) => props.url});
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: ${(props) => (props.size ? props.size : "contain")};
   border: none;
 
   @media screen and (max-width: 425px) {

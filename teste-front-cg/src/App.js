@@ -1,12 +1,12 @@
+import BarraDeNavegacao from "./components/BarraDeNavegacao.jsx";
 import { GlobalStyle } from "./components/Global.tsx";
 import Home from "./components/Home";
-import Navbar from "./mustang-design/core/Navbar";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Navbar />
+      <BarraDeNavegacao />
       <Home />
     </>
   );
