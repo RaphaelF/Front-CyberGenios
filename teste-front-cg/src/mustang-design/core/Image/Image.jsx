@@ -6,10 +6,6 @@ export const Image = styled.img`
   object-fit: ${(props) => (props.fit ? props.fit : "fill")};
 
   border: none;
-
-  @media screen and (max-width: 425px) {
-    height: 343px;
-  }
 `;
 
 export const ImageContainer = styled.div`
@@ -17,6 +13,6 @@ export const ImageContainer = styled.div`
   flex: none;
   align-items: center;
   justify-content: center;
-
+  height: fit-content;
   max-height: 704px;
 `;

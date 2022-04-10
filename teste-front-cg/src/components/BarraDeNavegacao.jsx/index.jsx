@@ -5,9 +5,9 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as Logo2 } from "../../assets/logo2.svg";
 import StyledLogo from "../../mustang-design/UI/StyledLogo";
 
-function BarraDeNavegacao() {
+function BarraDeNavegacao({ color }) {
   return (
-    <Navbar>
+    <Navbar color={color}>
       <StyledLogo>{window.innerWidth > 425 ? <Logo /> : <Logo2 />}</StyledLogo>
       <Navitem Text={"Home"} url={"#"}>
         Home

@@ -15,6 +15,7 @@ export const NavBar = styled.ul`
   height: 5rem;
   transition: 0.2s;
   z-index: 2;
+  background: ${(props) => props.color};
 
   @media screen and (max-width: 425px) {
     flex-direction: column;

@@ -1,7 +1,4 @@
-import car1 from "../../assets/car1.png";
-import car2 from "../../assets/car2.png";
-import car3 from "../../assets/car3.png";
-
+import { cars } from "../../data/cars";
 import CarouselContainer from "../../mustang-design/core/Carousel/CarouselContainer";
 import CarouselItem from "../../mustang-design/core/Carousel/CarouselItem";
 import Button from "../../mustang-design/core/Button";
@@ -11,79 +8,53 @@ import CardItem from "../../mustang-design/core/Card/CardItem.jsx";
 import { primaryColor } from "../../mustang-design/core/UI/variables";
 import { Header } from "../Header";
 import { Footer } from "../Footer/Footer";
+import BarraDeNavegacao from "../BarraDeNavegacao.jsx";
 
 function Home() {
   return (
-    <div style={{ width: "100%", overflow: "hidden" }}>
+    <div
+      style={{
+        width: "100%",
+        height: "fit-content",
+        overflow: "hidden",
+      }}
+    >
+      <BarraDeNavegacao />
       <Header />
       <CarouselContainer>
-        <CarouselItem>
-          <Card
-            src={car1}
-            horizontal={"8%"}
-            vertical={"84%"}
-            tittle={"Mustang"}
-          >
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-
-            <Button
-              type={"primary"}
-              color={primaryColor}
-              url={
-                "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
-              }
-            >
-              Ver Carros
-            </Button>
-          </Card>
-        </CarouselItem>
-        <CarouselItem>
-          <Card
-            src={car2}
-            horizontal={"8%"}
-            vertical={"92%"}
-            tittle={"Mustang"}
-          >
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <Button
-              type={"primary"}
-              color={primaryColor}
-              url={
-                "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
-              }
-            >
-              Ver Carros
-            </Button>
-          </Card>
-        </CarouselItem>
-        <CarouselItem>
-          <Card
-            src={car3}
-            horizontal={"-14%"}
-            vertical={"89%"}
-            tittle={"Mustang"}
-          >
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <Button
-              type={"primary"}
-              color={primaryColor}
-              url={
-                "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
-              }
-            >
-              Ver Carros
-            </Button>
-          </Card>
-        </CarouselItem>
+        {cars.map((car, index) => {
+          return (
+            <CarouselItem key={index}>
+              <Card
+                src={car.picture}
+                horizontal={car.horizontal}
+                vertical={car.vertical}
+                tittle={car.name}
+              >
+                <CardItem icon={"bi:calendar2-date"}>{car.year}</CardItem>
+                <CardItem icon={"fluent:top-speed-20-regular"}>
+                  {car.speed}
+                </CardItem>
+                <CardItem icon={"simple-line-icons:energy"}>
+                  {car.mileage}
+                </CardItem>
+                <CardItem icon={"fluent:people-20-regular"}>
+                  {car.userRate}
+                </CardItem>
+                <Button
+                  type={"primary"}
+                  color={primaryColor}
+                  url={
+                    "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
+                  }
+                >
+                  {" "}
+                  Ver Carros
+                </Button>
+              </Card>
+            </CarouselItem>
+          );
+        })}
       </CarouselContainer>
       <Footer />
     </div>

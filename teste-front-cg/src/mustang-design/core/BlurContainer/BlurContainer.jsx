@@ -22,4 +22,10 @@ export const BlurContainer = styled.div`
     rgba(29, 37, 39, 0) 100%
   );
   backdrop-filter: blur(15px);
+
+  @media screen and (max-width: 425px) {
+    height: 22.4rem;
+    width: 100%auto;
+    padding: 2rem 3rem 1.5rem 0;
+  }
 `;

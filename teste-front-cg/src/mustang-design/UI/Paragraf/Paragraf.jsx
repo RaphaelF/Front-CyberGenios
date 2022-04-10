@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const Paragraf = styled.p`
-  /* Desktop/Paragraph/MD */
+  width: 100%;
 
   font-family: "Montserrat";
   font-style: normal;
@@ -12,4 +12,10 @@ export const Paragraf = styled.p`
   text-align: ${(props) => (props.align ? props.align : "right")};
 
   color: ${(props) => (props.color ? props.color : "#ffffff")};
+
+  @media screen and (max-width: 425px) {
+    font-size: ${(props) => (props.size ? props.size : "1rem")};
+    line-height: 200%;
+    max-width: 312px;
+  }
 `;
