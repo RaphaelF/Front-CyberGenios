@@ -1,6 +1,6 @@
-import { ButtonContainer } from "./Button";
+import { ButtonContainer, ButtonLink } from "./Button";
 
-function Button({ type, url = "#", click = null, children }) {
+function Button({ type, url = "#", radius, click = null, children, color }) {
   function handleClick(event) {
     if (click !== null) {
       event.preventDefault();
@@ -9,8 +9,10 @@ function Button({ type, url = "#", click = null, children }) {
     }
   }
   return (
-    <a href={url}>
+    <ButtonLink color={color} href={url} target="_blank">
       <ButtonContainer
+        color={color}
+        radius={radius}
         type={type}
         onClick={(e) => {
           handleClick(e);
@@ -18,7 +20,7 @@ function Button({ type, url = "#", click = null, children }) {
       >
         {children}
       </ButtonContainer>
-    </a>
+    </ButtonLink>
   );
 }
 

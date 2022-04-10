@@ -1,44 +1,21 @@
-import React, { useEffect, useState } from "react";
-import bkg from "../../assets/background.png";
-
 import car1 from "../../assets/car1.png";
 import car2 from "../../assets/car2.png";
 import car3 from "../../assets/car3.png";
 
-import { ElipseFrame } from "../../mustang-design/core/Frame/Frames";
-
-import StyledImage from "../../mustang-design/core/Image";
 import CarouselContainer from "../../mustang-design/core/Carousel/CarouselContainer";
 import CarouselItem from "../../mustang-design/core/Carousel/CarouselItem";
 import Button from "../../mustang-design/core/Button";
 import Card from "../../mustang-design/core/Card/CardContainer.jsx";
 import CardItem from "../../mustang-design/core/Card/CardItem.jsx";
 
+import { primaryColor } from "../../mustang-design/core/UI/variables";
+import { Header } from "../Header";
+import { Footer } from "../Footer/Footer";
+
 function Home() {
-  const [imgSize, setImgSize] = useState();
-
-  useEffect(() => {
-    const windowWidth = window.innerWidth;
-    if (windowWidth > 425) {
-      setImgSize("lg");
-    } else {
-      setImgSize("sm");
-    }
-  }, []);
-
   return (
-    <div style={{ maxWidth: "100%", overflow: "hidden" }}>
-      <ElipseFrame
-        style={
-          imgSize === "lg"
-            ? { transform: "translateX(-20px)" }
-            : { transform: "translateX(-50px)" }
-        }
-        size={imgSize}
-      >
-        <StyledImage url={bkg} alt={"Carro em uma garagem"} />
-      </ElipseFrame>
-
+    <div style={{ width: "100%", overflow: "hidden" }}>
+      <Header />
       <CarouselContainer>
         <CarouselItem>
           <Card
@@ -52,8 +29,14 @@ function Home() {
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
 
-            <Button type={"primary"} url={"https://www.youtube.com"}>
-              Ver carro
+            <Button
+              type={"primary"}
+              color={primaryColor}
+              url={
+                "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
+              }
+            >
+              Ver Carros
             </Button>
           </Card>
         </CarouselItem>
@@ -68,8 +51,14 @@ function Home() {
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <Button type={"primary"} url={"https://www.youtube.com"}>
-              Ver carro
+            <Button
+              type={"primary"}
+              color={primaryColor}
+              url={
+                "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
+              }
+            >
+              Ver Carros
             </Button>
           </Card>
         </CarouselItem>
@@ -84,12 +73,19 @@ function Home() {
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
             <CardItem icon={"bi:calendar2-date"}>2015</CardItem>
-            <Button type={"primary"} url={"https://www.youtube.com"}>
-              Ver carro
+            <Button
+              type={"primary"}
+              color={primaryColor}
+              url={
+                "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
+              }
+            >
+              Ver Carros
             </Button>
           </Card>
         </CarouselItem>
       </CarouselContainer>
+      <Footer />
     </div>
   );
 }

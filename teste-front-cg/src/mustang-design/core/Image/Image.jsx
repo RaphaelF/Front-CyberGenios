@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const Image = styled.img`
-  width: 100%;
-  height: 903px;
-  background-image: url(${(props) => props.url});
-  background-repeat: no-repeat;
-  background-size: ${(props) => (props.size ? props.size : "contain")};
+  width: ${(props) => (props.width ? props.width : "100%")};
+  height: ${(props) => (props.height ? props.height : "903px")};
+  object-fit: ${(props) => (props.fit ? props.fit : "fill")};
+
   border: none;
 
   @media screen and (max-width: 425px) {
@@ -18,7 +17,6 @@ export const ImageContainer = styled.div`
   flex: none;
   align-items: center;
   justify-content: center;
-  max-width: 1580px;
+
   max-height: 704px;
-  overflow: hidden;
 `;
