@@ -1,5 +1,5 @@
 import Blury from "../../mustang-design/core/BlurContainer";
-import Button from "../../mustang-design/core/Button";
+import Button from "../../mustang-design/UI/Button";
 import Paragraf from "../../mustang-design/UI/Paragraf";
 import Tittle from "../../mustang-design/UI/Tittle";
 import footerbkg1 from "../../assets/footerbkg1.png";

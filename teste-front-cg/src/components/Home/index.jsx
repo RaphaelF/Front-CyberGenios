@@ -1,7 +1,7 @@
 import { cars } from "../../data/cars";
 import CarouselContainer from "../../mustang-design/core/Carousel/CarouselContainer";
 import CarouselItem from "../../mustang-design/core/Carousel/CarouselItem";
-import Button from "../../mustang-design/core/Button";
+import Button from "../../mustang-design/UI/Button";
 import Card from "../../mustang-design/core/Card/CardContainer.jsx";
 import CardItem from "../../mustang-design/core/Card/CardItem.jsx";
 

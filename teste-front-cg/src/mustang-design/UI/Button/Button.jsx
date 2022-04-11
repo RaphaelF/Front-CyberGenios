@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { primaryColor, whiteColor } from "../UI/variables";
+import { primaryColor, whiteColor } from "../../core/UI/variables";
 
 export const ButtonContainer = styled.div`
   height: 3rem;
-  width: 100%;
+  width: ${(props) => (props.type === "tertiary" ? "fit-content" : "100%")};
   max-width: 18.875rem;
   border-radius: ${(props) => (props.radius ? props.radius : "1.3rem")};
   border: ${(props) =>
@@ -24,13 +24,15 @@ export const ButtonContainer = styled.div`
   font-size: 16px;
   line-height: 200%;
   color: ${(props) =>
-    props.type === "primary"
+    props.type === "secondary"
       ? props.color
-        ? `1px solid ${props.color}`
-        : `1px solid ${primaryColor}`
-      : "none"};
+        ? props.color
+        : whiteColor
+      : props.color
+      ? props.color
+      : primaryColor};
   display: flex;
-  padding: 0.5rem 4.5rem;
+  padding: ${(props) => (props.type === "tertiary" ? "0px" : "0.5rem 4.5rem")};
   align-items: center;
   text-align: center;
 `;
