@@ -3,7 +3,7 @@ import { useState } from "react";
 import { primaryColor } from "../../mustang-design/core/UI/variables";
 
 import { Footer } from "../Footer/Footer";
-import BarraDeNavegacao from "../BarraDeNavegacao.jsx";
+import BarraDeNavegacao from "../BarraDeNavegacao/index.jsx";
 import { cars } from "../../data/cars";
 import Tittle from "../../mustang-design/UI/Tittle";
 import Button from "../../mustang-design/UI/Button";
@@ -47,7 +47,6 @@ export function Tabela() {
           />
         </Modal>
       )}
-      <BarraDeNavegacao color={primaryColor} />
 
       <section
         style={{

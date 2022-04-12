@@ -8,7 +8,7 @@ import CardItem from "../../mustang-design/core/Card/CardItem.jsx";
 import { primaryColor } from "../../mustang-design/core/UI/variables";
 import { Header } from "../Header";
 import { Footer } from "../Footer/Footer";
-import BarraDeNavegacao from "../BarraDeNavegacao.jsx";
+import BarraDeNavegacao from "../BarraDeNavegacao/index.jsx";
 
 function Home() {
   return (
@@ -19,7 +19,6 @@ function Home() {
         overflow: "hidden",
       }}
     >
-      <BarraDeNavegacao />
       <Header />
       <CarouselContainer>
         {cars.map((car, index) => {
