@@ -7,7 +7,7 @@ function Button({
   click = null,
   children,
   color,
-  newPage = false,
+  newPage,
 }) {
   function handleClick(event) {
     if (click !== null) {
@@ -17,7 +17,7 @@ function Button({
     }
   }
   return (
-    <ButtonLink color={color} href={url} target={newPage ? "_blank" : "_self"}>
+    <ButtonLink color={color} href={url} target={"_blank"}>
       <ButtonContainer
         color={color}
         radius={radius}

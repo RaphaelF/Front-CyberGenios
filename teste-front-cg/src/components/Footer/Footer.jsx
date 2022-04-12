@@ -62,6 +62,7 @@ export function Footer() {
                 "https://www.youtube.com/watch?v=Sy962UmhnUY&list=PLycLooyYdGl_vclNUlXfaV53iCnxBr0Nk"
               }
               color={whiteColor}
+              newPage={true}
             >
               Ver Carros
             </Button>
