@@ -10,43 +10,42 @@ import Button from "../../mustang-design/UI/Button";
 import TableContainer from "../../mustang-design/core/Table/TableContainer";
 import TableHead from "../../mustang-design/core/Table/TableHead.jsx";
 import TableItem from "../../mustang-design/core/Table/TableItem";
+import Modal from "../../mustang-design/core/Modal";
+import CadastrarCarro from "../CadastrarCarro";
 
 export function Tabela() {
+  const [carros, setCarros] = useState(cars);
   const [open, setOpen] = useState(false);
+  const [carroSelecionado, setCarroSelecionado] = useState({});
+  function closeModal() {
+    setOpen(!open);
+  }
   function newItem() {
+    console.log(carros);
+    setCarroSelecionado({});
     setOpen(!open);
   }
-  function editItem() {
+  function editItem(value) {
+    setCarroSelecionado(value);
     setOpen(!open);
   }
-  function deleteItem() {
-    console.log("Deletando item Awwwww");
+
+  function deleteItem(value) {
+    const newCars = carros.filter((carro) => carro.id !== value.id);
+    setCarros(newCars);
   }
+
   return (
     <>
       {open && (
-        <div
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100vh",
-            background: "#aeb1b3",
-            opacity: 0.5,
-            zIndex: 10,
-          }}
-        >
-          <button
-            style={{ position: "absolute", top: "6rem", right: "2rem" }}
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setOpen(!open);
-            }}
-          >
-            {" "}
-            CLOSE
-          </button>
-        </div>
+        <Modal>
+          <CadastrarCarro
+            cancelar={closeModal}
+            carros={carros}
+            setCarros={setCarros}
+            carroSelecionado={carroSelecionado}
+          />
+        </Modal>
       )}
       <BarraDeNavegacao color={primaryColor} />
 
@@ -88,9 +87,13 @@ export function Tabela() {
             <>Nota usuários</>
             <></>
           </TableHead>
-          {cars.map((car, index) => {
+          {carros.map((car, index) => {
             return (
-              <TableItem key={index} edit={editItem} del={deleteItem}>
+              <TableItem
+                key={index}
+                edit={() => editItem(car)}
+                del={() => deleteItem(car)}
+              >
                 <>{car.name}</>
                 <>{car.year}</>
                 <>{car.speed}</>

@@ -1,6 +1,14 @@
 import { ButtonContainer, ButtonLink } from "./Button";
 
-function Button({ type, url = "#", radius, click = null, children, color }) {
+function Button({
+  type,
+  url = "#",
+  radius,
+  click = null,
+  children,
+  color,
+  newPage = false,
+}) {
   function handleClick(event) {
     if (click !== null) {
       event.preventDefault();
@@ -9,7 +17,7 @@ function Button({ type, url = "#", radius, click = null, children, color }) {
     }
   }
   return (
-    <ButtonLink color={color} href={url} target="_blank">
+    <ButtonLink color={color} href={url} target={newPage ? "_blank" : "_self"}>
       <ButtonContainer
         color={color}
         radius={radius}

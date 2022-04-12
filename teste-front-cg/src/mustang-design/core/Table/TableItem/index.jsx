@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import Button from "../../../UI/Button";
 import { TableRow, TableCell } from "../Table";
 
-function TableItem({ children, edit, del }) {
+function TableItem({ children, edit, del, textColor, background }) {
   function handleEdit() {
     edit();
   }
@@ -10,7 +10,7 @@ function TableItem({ children, edit, del }) {
     del();
   }
   return (
-    <TableRow>
+    <TableRow textColor={textColor} background={background}>
       {children.map((child, index) => {
         return <TableCell key={index}>{child}</TableCell>;
       })}

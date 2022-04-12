@@ -4,6 +4,7 @@ import car3 from "../assets/car3.png";
 
 export const cars = [
   {
+    id: 0,
     picture: car1,
     horizontal: "8%",
     vertical: "84%",
@@ -12,8 +13,10 @@ export const cars = [
     speed: "180Km/h",
     mileage: "9/10",
     userRate: "8/10",
+    linkProd: "",
   },
   {
+    id: 1,
     picture: car2,
     horizontal: "8%",
     vertical: "92%",
@@ -22,8 +25,10 @@ export const cars = [
     speed: "180Km/h",
     mileage: "9/10",
     userRate: "8/10",
+    linkProd: "",
   },
   {
+    id: 2,
     picture: car3,
     horizontal: "-14%",
     vertical: "89%",
@@ -32,5 +37,6 @@ export const cars = [
     speed: "180Km/h",
     mileage: "9/10",
     userRate: "8/10",
+    linkProd: "",
   },
 ];

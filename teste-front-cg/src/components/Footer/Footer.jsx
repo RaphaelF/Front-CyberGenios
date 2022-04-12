@@ -14,7 +14,7 @@ export function Footer() {
       return (
         <>
           <StyledImage
-            url={footerbkg1}
+            src={footerbkg1}
             height={"33.9rem"}
             width={"106.875rem"}
             fit={"fill"}
@@ -45,7 +45,7 @@ export function Footer() {
     } else {
       return (
         <>
-          <StyledImage url={footerbkg2} height={"568px"} fit={"cover"} />
+          <StyledImage src={footerbkg2} height={"568px"} fit={"cover"} />
 
           <Blury>
             <Tittle>O que são</Tittle>
