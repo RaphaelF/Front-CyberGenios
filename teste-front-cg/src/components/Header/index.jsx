@@ -24,7 +24,7 @@ export function Header() {
       size={imgSize}
     >
       <StyledImage
-        url={bkg}
+        src={bkg}
         height={imgSize === "sm" ? "21.4rem" : "56.4rem"}
         alt={"Carro em uma garagem"}
         fit={imgSize === "lg" ? "contain" : "scale-down"}

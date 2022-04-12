@@ -1,25 +1,25 @@
+import { useState } from "react";
 import { GlobalStyle } from "./components/Global.jsx";
 import Home from "./components/Home";
-import { Tabela } from "./components/Tabela/index.jsx";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import BarraDeNavegacao from "./components/BarraDeNavegacao/index.jsx";
+import { Tabela } from "./components/Tabela";
+
+import BarraDeNavegacao from "./components/BarraDeNavegacao";
 
 function App() {
+  const Router = () => {
+    const location = window.location.pathname;
+    if (location === "/tabela") {
+      return <Tabela />;
+    } else {
+      return <Home />;
+    }
+  };
   return (
     <>
       <GlobalStyle />
-      <Router>
-        <BarraDeNavegacao />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/tabela">
-            <Tabela />
-          </Route>
-        </Switch>
-      </Router>
-      <Tabela />
+
+      <BarraDeNavegacao />
+      {Router()}
     </>
   );
 }
