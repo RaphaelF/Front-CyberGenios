@@ -44,20 +44,19 @@ function CadastrarCarro({ cancelar, carros, setCarros, carroSelecionado }) {
       vertical: 0,
       name: nome,
       year: ano,
-      speed: velocidade + "Km/h",
+      speed: velocidade,
       mileage: economia,
       userRate: nota,
       linkProd: linkProd,
     };
-    console.log(carro);
-    if (selected.id) {
-      const index = carros.findIndex((car) => car.id === carro.id);
-      const newCarros = carros;
-      newCarros[index] = carro;
-      setCarros(newCarros);
+    const index = carros.findIndex((car) => car.id === selected.id);
+    console.log(index);
+
+    if (index !== -1) {
+      carros.splice(index, 1, carro);
     } else {
       const newCarros = [...carros, carro];
-      console.log(newCarros);
+
       setCarros(newCarros);
     }
   }
